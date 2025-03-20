@@ -14,7 +14,7 @@ void ofApp::setup(){
 	ofDisableDepthTest();
 
 	// load video
-	video.load("videos/tg2.mp4");
+	video.load("videos/tg.mp4");
 	video.setVolume(0.2);
 	video.play();
 

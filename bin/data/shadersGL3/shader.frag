@@ -1,8 +1,8 @@
 // fragment shader
-// this shader code is based on the system developed by movAX13h, 2013
+// this shader code is based on the algorithm developed by movAX13h, 2013
 
 #version 150
-uniform sampler2DRect tex0;		// video size
+uniform sampler2DRect tex0;		// video texture
 uniform vec2 texSize;			// texture size
 uniform vec2 windowSize;		// window size	
 uniform vec2 charSize;          // ASCII character size
