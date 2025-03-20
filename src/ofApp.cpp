@@ -17,8 +17,8 @@ void ofApp::setup(){
 	video.setVolume(0.3);
 	video.play();
 
-	// TODO: load fragment and vertex shaders
-	//shader.load("shadersGL3/shader");
+	// load fragment and vertex shaders
+	shader.load("shadersGL3/shader");
 }
 
 //--------------------------------------------------------------
@@ -28,7 +28,16 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	video.draw(0, 0, ofGetWidth(), ofGetHeight());
+	shader.begin();
+
+	// pass fragment shader information
+	shader.setUniformTexture("tex0", video.getTexture(), 0);
+	shader.setUniform2f("texSize", video.getWidth(), video.getHeight());
+	shader.setUniform2f("windowSize", ofGetWidth(), ofGetHeight());
+
+	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+
+	shader.end();
 }
 
 //--------------------------------------------------------------
