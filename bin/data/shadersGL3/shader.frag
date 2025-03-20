@@ -5,6 +5,7 @@
 uniform sampler2DRect tex0;		// video size
 uniform vec2 texSize;			// texture size
 uniform vec2 windowSize;		// window size	
+uniform vec2 charSize;          // ASCII character size
 
 out vec4 outputColor;
 
@@ -21,24 +22,24 @@ float character(int n, vec2 p) {
 }
 
 void main() {
-	// calculate normalized position in the window
-	vec2 normalizedPos = gl_FragCoord.xy / windowSize;
+    // calculate character cell coordinates
+    // based on input character size
+    vec2 charCell = floor(gl_FragCoord.xy / charSize);
+    vec2 charCenterWindow = charCell * charSize + charSize / 2.0;
 
-	// convert to texture coordinates
-	// this must be done as loaded video size is different from the window size
-	vec2 texCoord = vec2(
-        normalizedPos.x * texSize.x,
-        (1.0 - normalizedPos.y) * texSize.y // flip y
+    // convert to texture coordinates
+    // this must be done as loaded video size is different from the window size
+    vec2 normalizedPos = vec2(
+        charCenterWindow.x / windowSize.x,
+        1.0 - (charCenterWindow.y / windowSize.y)
     );
+    vec2 texCoord = normalizedPos * texSize;
 
-	// sample video texture at pixel position
-	// we need to sample whole blocks for ASCII
-	vec2 blockSize = vec2(16);
-    vec2 blockTexCoord = floor(texCoord/blockSize) * blockSize;
-    vec4 videoColor = texture(tex0, blockTexCoord);
+    // sample video texture at character position center
+    vec4 videoColor = texture(tex0, texCoord);
 
-	// calculate grayscale value
-	float gray = 0.3 * videoColor.r + 0.59 * videoColor.g + 0.11 * videoColor.b;
+    // calculate grayscale value
+    float gray = dot(videoColor.rgb, vec3(0.3, 0.59, 0.11));
 
 	// select character based on grayscale value
 	int n = 4096;  // default character (space)
@@ -97,7 +98,7 @@ void main() {
     if (gray > 0.9767) n = 11512810;
 
 	// calculate character pixels
-	vec2 charPos = mod(gl_FragCoord.xy/8.0, 2.0) - vec2(1.0);
+	vec2 charPos = mod(gl_FragCoord.xy, charSize) / charSize * 2.0 - 1.0;
     float charPixel = character(n, charPos);
 
 	// plain ASCII

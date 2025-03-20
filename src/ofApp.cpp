@@ -6,6 +6,7 @@ void ofApp::setup(){
 	ofSetWindowTitle("ofxAsciiPlayer");
 	ofBackground(0);
 	ofSetFrameRate(30);
+	ofDisableAntiAliasing();
 
 	// graphics settings
 	ofEnableAlphaBlending();
@@ -13,7 +14,7 @@ void ofApp::setup(){
 	ofDisableDepthTest();
 
 	// load video
-	video.load("videos/sh1.mp4");
+	video.load("videos/tg2.mp4");
 	video.setVolume(0.2);
 	video.play();
 
@@ -34,6 +35,7 @@ void ofApp::draw(){
 	shader.setUniformTexture("tex0", video.getTexture(), 0);
 	shader.setUniform2f("texSize", video.getWidth(), video.getHeight());
 	shader.setUniform2f("windowSize", ofGetWidth(), ofGetHeight());
+	shader.setUniform2f("charSize", 12, 12);
 
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 
