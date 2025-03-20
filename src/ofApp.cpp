@@ -13,8 +13,8 @@ void ofApp::setup(){
 	ofDisableDepthTest();
 
 	// load video
-	video.load("videos/tf1.mp4");
-	video.setVolume(0.3);
+	video.load("videos/sh1.mp4");
+	video.setVolume(0.2);
 	video.play();
 
 	// load fragment and vertex shaders
