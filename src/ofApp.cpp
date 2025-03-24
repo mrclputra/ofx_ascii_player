@@ -15,8 +15,11 @@ void ofApp::setup(){
 
 	// load video
 	video.load("videos/tg.mp4");
-	video.setVolume(0.2);
+	video.setVolume(0.1);
 	video.play();
+
+	// setup FBO
+	fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGB);
 
 	// load fragment and vertex shaders
 	shader.load("shadersGL3/shader");
@@ -25,17 +28,45 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	video.update();
+
+	// draw content to frame buffer object
+	fbo.begin();
+	ofClear(0, 0, 0, 0);
+
+	// calculate scaling
+	// most of the time, the video is not scaled correctly to the window, and is upside down
+	float windowWidth = ofGetWidth();
+	float windowHeight = ofGetHeight();
+	float videoWidth = video.getWidth();
+	float videoHeight = video.getHeight();
+
+	float scale = glm::min(windowWidth / videoWidth, windowHeight / videoHeight);
+	float scaledWidth = videoWidth * scale;
+	float scaledHeight = videoHeight * scale;
+
+	// center the video on screen
+	float x = (windowWidth - scaledWidth) / 2;
+	float y = (windowHeight - scaledHeight) / 2;
+
+	// apply scaling and draw video
+	ofPushMatrix();
+	ofTranslate(x, y + scaledHeight);
+	ofScale(1, -1);
+	video.draw(0, 0, scaledWidth, scaledHeight);
+	ofPopMatrix();
+
+	fbo.end();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	shader.begin();
 
-	// pass fragment shader information
-	shader.setUniformTexture("tex0", video.getTexture(), 0);
-	shader.setUniform2f("texSize", video.getWidth(), video.getHeight());
-	shader.setUniform2f("windowSize", ofGetWidth(), ofGetHeight());
-	shader.setUniform2f("charSize", 12, 12);
+	// pass FBO texture to shader
+	// pass other fragment shader information
+	shader.setUniformTexture("tex0", fbo.getTexture(), 0);
+	shader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+	shader.setUniform2f("charSize", 18, 18);
 
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 

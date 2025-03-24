@@ -3,8 +3,7 @@
 
 #version 150
 uniform sampler2DRect tex0;		// video texture
-uniform vec2 texSize;			// texture size
-uniform vec2 windowSize;		// window size	
+uniform vec2 resolution;		// window size	
 uniform vec2 charSize;          // ASCII character size
 
 out vec4 outputColor;
@@ -25,15 +24,9 @@ void main() {
     // calculate character cell coordinates
     // based on input character size
     vec2 charCell = floor(gl_FragCoord.xy / charSize);
-    vec2 charCenterWindow = charCell * charSize + charSize / 2.0;
+    vec2 charCenter = charCell * charSize + charSize / 2.0;
 
-    // convert to texture coordinates
-    // this must be done as loaded video size is different from the window size
-    vec2 normalizedPos = vec2(
-        charCenterWindow.x / windowSize.x,
-        1.0 - (charCenterWindow.y / windowSize.y)
-    );
-    vec2 texCoord = normalizedPos * texSize;
+    vec2 texCoord = charCenter;
 
     // sample video texture at character position center
     vec4 videoColor = texture(tex0, texCoord);
