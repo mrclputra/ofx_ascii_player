@@ -3,8 +3,10 @@ ASCII Video player with real-time shader conversion
 - Convert video to text ASCII art  
 - Grayscale based mapping  
 
-<img src="/bin/data/images/demo1.png" height="200"/>  
-<img src="/bin/data/images/demo2.png" height="200"/>  
+<div align="center">
+<img src="/bin/data/images/demo1.png" width="400"/>  
+<img src="/bin/data/images/demo2.png" width="400"/>  
+</div>
 
 Utilizes OpenFrameWorks and ImGUI (WIP)  
 
