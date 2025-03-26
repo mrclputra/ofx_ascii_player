@@ -29,6 +29,11 @@ void ofApp::setup(){
 void ofApp::update(){
 	video.update();
 
+	// resize fbo if needed?
+	if (fbo.getWidth() != ofGetWidth() || fbo.getHeight() != ofGetHeight()) {
+		fbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGB);
+	}
+
 	// draw content to frame buffer object
 	fbo.begin();
 	ofClear(0, 0, 0, 0);
@@ -115,7 +120,8 @@ void ofApp::mouseExited(int x, int y){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+	// recreate FBO with new dimensions
+	fbo.allocate(w, h, GL_RGB);
 }
 
 //--------------------------------------------------------------
