@@ -114,5 +114,5 @@ void main() {
 //	outputColor = vec4(vec3(charPixel), 1.0);
 
 	// colored ASCII output
-	outputColor = videoColor * charPixel;
+	outputColor = color * charPixel;
 }
