@@ -71,19 +71,20 @@ void ofApp::draw(){
 	gui.begin();
 	shader.begin();
 
-	ImGui::Begin("Test Window", nullptr,
-		ImGuiWindowFlags_NoTitleBar |
-		ImGuiWindowFlags_NoCollapse |
-		ImGuiWindowFlags_NoMove |
+	// configure imGUI
+	ImGui::Begin("Debug Options", nullptr,
 		ImGuiWindowFlags_NoResize);
+
+	ImGui::Button("Load Video");
+	ImGui::SliderInt("Char Size", &charSize, 8, 54);
 
 	// pass FBO texture to shader
 	// pass other fragment shader information
 	shader.setUniformTexture("tex0", fbo.getTexture(), 0);
 	shader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
-	shader.setUniform2f("charSize", 12, 12);
+	shader.setUniform2f("charSize", charSize, charSize);
 
-	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight()); // draw plane (to render the video)
 
 	ImGui::End();
 

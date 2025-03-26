@@ -28,4 +28,6 @@ class ofApp : public ofBaseApp{
 		ofShader shader;
 
 		ofxImGui::Gui gui;
+
+		int charSize = 12;
 };
