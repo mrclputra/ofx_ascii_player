@@ -1,6 +1,8 @@
 #pragma once
+#define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
 
 #include "ofMain.h"
+#include "ofxImGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,4 +26,6 @@ class ofApp : public ofBaseApp{
 		ofFbo fbo;
 		ofVideoPlayer video;
 		ofShader shader;
+
+		ofxImGui::Gui gui;
 };

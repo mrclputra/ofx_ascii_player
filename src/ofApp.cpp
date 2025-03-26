@@ -23,6 +23,9 @@ void ofApp::setup(){
 
 	// load fragment and vertex shaders
 	shader.load("shadersGL3/shader");
+
+	// configure ofxImGui
+	gui.setup(nullptr, true, ImGuiConfigFlags_ViewportsEnable);
 }
 
 //--------------------------------------------------------------
@@ -76,6 +79,15 @@ void ofApp::draw(){
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 
 	shader.end();
+
+	// draw gui
+	gui.begin();
+
+	/*ImGui::SetNextWindowPos(ofVec2f(ofGetWindowPositionX(), ofGetWindowPositionY()), ImGuiCond_Once);
+	ImGui::SetNextWindowSize(ofVec2f(300, 400), ImGuiCond_Once);
+	ImGui::ShowDemoWindow();*/
+
+	gui.end();
 }
 
 //--------------------------------------------------------------

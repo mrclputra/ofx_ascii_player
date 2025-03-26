@@ -1,32 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\data\shadersGL3\shader.frag">
-      <Filter>src</Filter>
-    </None>
-    <None Include="bin\data\shadersGL3\shader.vert">
-      <Filter>src</Filter>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\BaseEngine.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\DefaultTheme.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineGLFW.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineOpenFrameworks.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineOpenGLES.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\Gui.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ImHelpers.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ofxImGuiLoggerChannel.cpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_glfw.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_glfw_context_support.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_opengl2.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_opengl3.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\extras\imgui_stdlib.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\extras</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui_demo.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui_draw.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui_tables.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui_widgets.cpp">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{CCD2072C--82C-9-44-26-A-DAA-A2D44547ED4F}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui">
+			<UniqueIdentifier>{FF5BE5C7--8A4-4-49-D1-A-920-5099820F5AEC}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\src">
+			<UniqueIdentifier>{E110C833--E3E-A-4C-98-B-92C-F3FE82DBD5AB}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\libs">
+			<UniqueIdentifier>{9579803B--5FC-E-42-AB-9-105-3AA4A7988300}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\libs\imgui">
+			<UniqueIdentifier>{5E3F4AB4--8DC-6-4E-FC-8-B96-44C6D75BA274}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\libs\imgui\backends">
+			<UniqueIdentifier>{7A44FAA4--71C-2-4C-38-8-ACD-7BB39CA4F62E}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\libs\imgui\extras">
+			<UniqueIdentifier>{80166EAC--EF6-1-41-8A-8-470-55BE05EA6F6C}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxImGui\libs\imgui\src">
+			<UniqueIdentifier>{ED9E06E8--E42-A-4A-F6-8-665-1BD5C67A02AB}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\BaseEngine.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\BaseTheme.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\DefaultTheme.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineGLFW.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineOpenFrameworks.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineOpenGLES.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\EngineVk.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\gles1CompatibilityHacks.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\glfwCompatibilityHacks.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\Gui.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\imconfig.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ImHelpers.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\LinkedList.hpp">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ofxImGui.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ofxImGuiConstants.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\src\ofxImGuiLoggerChannel.h">
+			<Filter>addons\ofxImGui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_glfw.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_glfw_arc_support.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_glfw_context_support.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_opengl2.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_opengl3.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\backends\imgui_impl_opengl3_loader.h">
+			<Filter>addons\ofxImGui\libs\imgui\backends</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\extras\imgui_stdlib.h">
+			<Filter>addons\ofxImGui\libs\imgui\extras</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui.h">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imgui_internal.h">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imstb_rectpack.h">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imstb_textedit.h">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\libraries\of_v20250319_vs_release\addons\ofxImGui\libs\imgui\src\imstb_truetype.h">
+			<Filter>addons\ofxImGui\libs\imgui\src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
 </Project>
