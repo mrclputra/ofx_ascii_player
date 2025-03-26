@@ -71,7 +71,7 @@ void ofApp::draw(){
 	// pass other fragment shader information
 	shader.setUniformTexture("tex0", fbo.getTexture(), 0);
 	shader.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
-	shader.setUniform2f("charSize", 18, 18);
+	shader.setUniform2f("charSize", 12, 12);
 
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 

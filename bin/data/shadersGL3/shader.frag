@@ -8,12 +8,25 @@ uniform vec2 charSize;          // ASCII character size
 
 out vec4 outputColor;
 
+// in a bitmap, each bit represents whether a pixel is on(1) or off(0)
+// for a 5x5 grid, we need 25 bits to represent all pixel states
+// in our case, we check each bit in the character's bitmap to determine if a pixel should be drawn
+
 // character bitmap lookup function
+// n represents a 5x5 bitmap for a character, in long integer
 float character(int n, vec2 p) {
+    // transform pixel coordinates to a 5x5 grid
 	p = floor(p * vec2(-4, 4) + 2.5);
+
+    // make sure coordinates are within 5x5 grid (0-4)
+    // this prevents drawing outside of the defined grid
 	if (clamp(p.x, 0, 4) == p.x) {
 		if (clamp(p.y, 0, 4) == p.y) {
+            
+            // calculate grid index
 			int a = int(round(p.x) + 5 * round(p.y));
+
+            // bitwise check if the corresponding bit is set
             if (((n >> a) & 1) == 1) return 1;
 		}
 	}
