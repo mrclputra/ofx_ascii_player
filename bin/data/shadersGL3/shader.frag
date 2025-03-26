@@ -1,5 +1,7 @@
 // fragment shader
-// this shader code is based on the algorithm developed by movAX13h, 2013
+// this shader code is based on the popular algorithm developed by movAX13h, 2013
+// I modified to work with an FBO, and for fixed-point sampling
+// original GLSL implementation here: https://www.shadertoy.com/view/lssGDj
 
 #version 150
 uniform sampler2DRect tex0;		// video texture
@@ -41,16 +43,17 @@ void main() {
 
     vec2 texCoord = charCenter;
 
-    // sample video texture at character position center
-    vec4 videoColor = texture(tex0, texCoord);
+    // sample color at character position center
+    vec4 color = texture(tex0, texCoord);
 
     // calculate grayscale value
-    float gray = dot(videoColor.rgb, vec3(0.3, 0.59, 0.11));
+    float gray = dot(color.rgb, vec3(0.3, 0.59, 0.11));
 
 	// select character based on grayscale value
 	int n = 4096;  // default character (space)
 
 	// character set
+    // we store every possible character in a long integer format
 //	if (gray > 0.1) n = 65600;    // :
 //    if (gray > 0.2) n = 163153;   // *
 //    if (gray > 0.3) n = 15255086; // o 
