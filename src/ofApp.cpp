@@ -24,7 +24,7 @@ void ofApp::setup(){
 	// load fragment and vertex shaders
 	shader.load("shadersGL3/shader");
 
-	// configure ofxImGui
+	// call ofxImGui
 	gui.setup(nullptr, true, ImGuiConfigFlags_ViewportsEnable);
 }
 
@@ -68,7 +68,14 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	gui.begin();
 	shader.begin();
+
+	ImGui::Begin("Test Window", nullptr,
+		ImGuiWindowFlags_NoTitleBar |
+		ImGuiWindowFlags_NoCollapse |
+		ImGuiWindowFlags_NoMove |
+		ImGuiWindowFlags_NoResize);
 
 	// pass FBO texture to shader
 	// pass other fragment shader information
@@ -78,15 +85,9 @@ void ofApp::draw(){
 
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 
+	ImGui::End();
+
 	shader.end();
-
-	// draw gui
-	gui.begin();
-
-	/*ImGui::SetNextWindowPos(ofVec2f(ofGetWindowPositionX(), ofGetWindowPositionY()), ImGuiCond_Once);
-	ImGui::SetNextWindowSize(ofVec2f(300, 400), ImGuiCond_Once);
-	ImGui::ShowDemoWindow();*/
-
 	gui.end();
 }
 
